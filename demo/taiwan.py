@@ -13,7 +13,7 @@ def getdata(url):
     return data
 
 
-def xm(url):
+def name_id(url):
     f1 = open(r"C:\Users\c\Desktop\name.txt", "w", encoding="utf8")
     while 1:
         # url = "https://tw.51240.com/"
@@ -101,10 +101,10 @@ def company_one(url):
 
 if __name__ == "__main__":
     # url = "https://tw.51240.com/"
-    # xm(url)
+    # name_id(url)
     # url = 'https://www.p2peye.com/yhwd/p16/page'
-    # dz(url)
+    # address(url)
     # url = "https://waizi.mingluji.com/taxonomy/term/825?page="
-    # comp(url)
+    # company(url)
     url = "https://www.71ab.com/province_32"
     company_one(url)
