@@ -40,8 +40,8 @@ def dz(url):
         data = html.xpath(
             '//div[@class="ui-branchs-warp"]//li//dd[@class="ui-branchs-address"]/span[@class="ui-branchs-info-sp"]//text()')
         print(data)
-        for ctx in data:
-            f1.write(ctx + "\n")
+        for content in data:
+            f1.write(content + "\n")
             f1.flush()
         index = index+1
     f1.close()
@@ -63,8 +63,8 @@ def comp(url):
         print(data)
         if len(data) == 0:
             break
-        for ctx in data:
-            f1.write(ctx + "\n")
+        for content in data:
+            f1.write(content + "\n")
             f1.flush()
         index = index + 1
     f1.close()
@@ -92,8 +92,8 @@ def comp_one(url):
         print(data)
         if len(data) == 0:
             break
-        for ctx in data:
-            f1.write(ctx + "\n")
+        for content in data:
+            f1.write(content + "\n")
             f1.flush()
         index = index + 1
     f1.close()
