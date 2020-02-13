@@ -26,7 +26,7 @@ def xm(url):
     f1.close()
 
 
-def dz(url):
+def address(url):
     headers = {
         'User-Agent': 'self-defind-user-agent',
         'Cookie': 'name=self-define-cookies-in header'
@@ -47,7 +47,7 @@ def dz(url):
     f1.close()
 
 
-def comp(url):
+def company(url):
     headers = {
         'User-Agent': 'self-defind-user-agent'
     }
@@ -69,7 +69,7 @@ def comp(url):
         index = index + 1
     f1.close()
 
-def comp_one(url):
+def company_one(url):
     headers = {
         'User-Agent': 'self-defind-user-agent'
     }
@@ -107,4 +107,4 @@ if __name__ == "__main__":
     # url = "https://waizi.mingluji.com/taxonomy/term/825?page="
     # comp(url)
     url = "https://www.71ab.com/province_32"
-    comp_one(url)
+    company_one(url)
