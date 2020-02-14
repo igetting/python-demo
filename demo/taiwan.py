@@ -29,6 +29,7 @@ def address(url):
     headers = {
         'User-Agent': 'self-defind-user-agent'
     }
+    
     f1 = open(r"C:\Users\c\Desktop\address.txt", "w", encoding="utf8")
     index = 1
     while 1:
