@@ -8,8 +8,8 @@ headers = {
 }
 
 
-def get_id():
-    f1 = open('/Users/c/Desktop/ids.txt', 'w', encoding='utf8')
+def id1():
+    f1 = open('/Users/c/Desktop/id1.txt', 'w', encoding='utf8')
     url = 'https://tw.51240.com/'
     while True:
         res = requests.get(url, headers=headers)
@@ -26,8 +26,8 @@ def get_id():
     f1.close()
 
 
-def get_name():
-    f1 = open('/Users/c/Desktop/name.txt', 'w', encoding='utf8')
+def name1():
+    f1 = open('/Users/c/Desktop/name1.txt', 'w', encoding='utf8')
     url = 'https://tw.51240.com/'
     while True:
         res = requests.get(url, headers=headers)
@@ -44,9 +44,9 @@ def get_name():
     f1.close()
 
 
-def get_address():
+def address1():
+    f1 = open('/Users/c/Desktop/address1.txt', 'w', encoding='utf8')
     url = 'https://www.p2peye.com/yhwd/p16/page'
-    f1 = open('/Users/c/Desktop/address.txt', 'w', encoding='utf8')
     index = 1
     while True:
         res = requests.get(url + str(index), headers=headers)
@@ -61,9 +61,9 @@ def get_address():
     f1.close()
 
 
-def get_company():
+def company1():
+    f1 = open('/Users/c/Desktop/company1.txt', 'w', encoding='utf8')
     url = 'https://waizi.mingluji.com/taxonomy/term/825?page='
-    f1 = open('/Users/c/Desktop/company.txt', 'w', encoding='utf8')
     index = 0
     while True:
         res = requests.get(url + str(index), headers=headers)
@@ -81,9 +81,9 @@ def get_company():
     f1.close()
 
 
-def get_company_one():
+def company2():
+    f1 = open('/Users/c/Desktop/company2.txt', 'w', encoding='utf8')
     url = 'https://www.71ab.com/province_32'
-    f1 = open('/Users/c/Desktop/company_one.txt', 'w', encoding='utf8')
     index = 1
     while True:
         if index == 1:
@@ -102,6 +102,30 @@ def get_company_one():
             f1.write(content + "\n")
         f1.flush()
         index = index + 1
+    f1.close()
+
+
+def address2():
+    f1 = open('/Users/c/Desktop/address2.txt', 'w', encoding='utf8')
+    url = 'https://yyk.99.com.cn/taiwan/'
+    res = requests.get(url, headers=headers)
+    # print(res.text)
+    html = etree.HTML(res.text)
+    # el = html.xpath('//div[@class="m-box"]//table//td//text()')
+    el = html.xpath('//div[@class="m-box"]//table//td//a/@href')
+    # print(el)
+    for u in el:
+        try:
+            uri = 'https://yyk.99.com.cn' + u
+            # print(uri)
+            res1 = requests.get(uri, headers=headers)
+            el1 = etree.HTML(res1.text).xpath('//dl[@class="wrap-info"]//p[4]/em/text()')[0]
+            print(el1)
+            f1.write(el1 + '\n')
+            f1.flush()
+        except Exception as e:
+            print(e)
+            continue
     f1.close()
 
 
