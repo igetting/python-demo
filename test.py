@@ -197,5 +197,52 @@ def company3():
     f1.close()
 
 
+def company4():
+    f1 = open('/Users/c/Desktop/company4.txt', 'w', encoding='utf8')
+    url = 'http://qy.58.com/tw/pn'
+    index = 1
+    while 1:
+        uri = url + str(index)
+        print(uri)
+        res = requests.get(uri, headers=headers)
+        html = etree.HTML(res.text)
+        d = html.xpath('//div[@class="compList"]/ul/li/span/a/text()')
+        # print(d)
+        if len(d) == 0:
+            break
+        index = index + 1
+        for dd in d:
+            if '办证' in dd:
+                continue
+            f1.write(dd + '\n')
+            print(dd)
+        f1.flush()
+    f1.close()
+
+
+def address5():
+    f1 = open('/Users/c/Desktop/address5.txt', 'w', encoding='utf8')
+    url = 'http://qy.58.com/tw/pn'
+    index = 1
+    while 1:
+        uri = url + str(index)
+        print(uri)
+        res = requests.get(uri, headers=headers)
+        html = etree.HTML(res.text)
+        d = html.xpath('//div[@class="compList"]/ul/li/span/a/@href')
+        for dd in d:
+            dd = 'http:' + dd
+            print(dd)
+            ress = requests.get(dd, headers=headers)
+            htmls = etree.HTML(ress.text)
+            add = htmls.xpath('//p[@class="a_address"]/text()')
+            print(add)
+            for ddd in add:
+                f1.write(ddd + '\n')
+        f1.flush()
+        index = index + 1
+    f1.close()
+
+
 if __name__ == "__main__":
     getattr(__import__(__name__), input('func name:').strip())()
