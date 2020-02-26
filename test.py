@@ -243,6 +243,36 @@ def address5():
         index = index + 1
     f1.close()
 
+def bank():
+    f1 = open('/Users/c/Desktop/bank.txt', 'w', encoding='utf8')
+    f2 = open('/Users/c/Desktop/bankdz.txt', 'w', encoding='utf8')
+    url = 'https://srh.bankofchina.com/search/operation/search.jsp'
+    page = 1
+    while True:
+        param = {"page": page}
+        res = requests.get(url, params=param)
+        # print(res.text)
+        html = etree.HTML(res.text)
+        d = html.xpath('//div[@class="BOC_main publish"]//tr[position()>1]/td[1]/text()')
+        dz = html.xpath('//div[@class="BOC_main publish"]//tr[position()>1]/td[4]/text()')
+        # print(d)
+        if len(d) == 0:
+            break
+        for t in d:
+            if len(t) > 1:
+                print(t)
+                f1.write(t + '\n')
+        f1.flush()
+        for t in dz:
+            if len(t) > 1:
+                print(t)
+                f2.write(t + '\n')
+        f2.flush()
+        page = page + 1
+    f1.close()
+    f2.close()
+
 
 if __name__ == "__main__":
-    getattr(__import__(__name__), input('func name:').strip())()
+    # getattr(__import__(__name__), input('func name:').strip())()
+    bank()
