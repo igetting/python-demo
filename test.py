@@ -274,7 +274,8 @@ def bank():
 
 def pingan():
     f1 = open('/Users/c/Desktop/pingan.txt','w',encoding='utf8')
-    url = 'https://www.cardbaobao.com/wangdian/bankwdsearch.asp?search_word=&sheng=100&shi=374&qu=0&sjid=&bankid=19&page='
+    # url = 'https://www.cardbaobao.com/wangdian/bankwdsearch.asp?search_word=&sheng=100&shi=374&qu=0&sjid=&bankid=19&page='
+    url = 'https://www.cardbaobao.com/wangdian/bankwdsearch.asp?search_word=%D0%D0&sheng=0&shi=0&qu=0&sjid=&bankid=19&page='
     index = 1
     while 1:
         res = requests.get(url+str(index),headers=headers)
@@ -283,7 +284,7 @@ def pingan():
         html = etree.HTML(res.text)
         d = html.xpath('//div[@class="ctabb"]//dd/div[@class="t1"]/a/text()')
         # print(d)
-        if len(d)==0:
+        if len(d)==0 or index > 37:
             break
         for i in d:
             print(i)
@@ -291,7 +292,6 @@ def pingan():
         f1.flush()
         index = index + 1
     f1.close()
-
 
 if __name__ == "__main__":
     # getattr(__import__(__name__), input('func name:').strip())()
