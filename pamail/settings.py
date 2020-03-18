@@ -1,10 +1,10 @@
-host = 'smtp.yeah.net'
-port = 25
-user = 'uidsun@yeah.net'
-# password = 'MLETIBYOAESZCYCE'
-password = 'JQLKGJHNTXMLNSBB'
+mail_host = 'smtp.yeah.net'
+mail_port = 25
+mail_user = 'uidsun@yeah.net'
+mail_pass = 'MLETIBYOAESZCYCE'
+# mail_pass = 'JQLKGJHNTXMLNSBB'
 
 sender = 'uidsun@yeah.net'
 receivers = ['uidsun@qq.com']
-subject = 'mail test'
+subject = 'sun'
 body = 'hello world!'
