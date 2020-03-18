@@ -1,4 +1,3 @@
-from tools import send
 from settings import *
 from tools import DBObject
 
@@ -12,5 +11,4 @@ def check():
 
 
 if __name__ == '__main__':
-    # send(sender, receivers, subject, body)
     check()

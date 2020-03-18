@@ -1,15 +1,18 @@
 import logging, os
 
 # log
-if not os.path.exists('logs'):
-    os.makedirs('logs')
 path = 'logs/out.log'
+if not os.path.exists(os.path.dirname(path)):
+    os.makedirs(os.path.dirname(path))
+
 log = logging.getLogger()
-hander = logging.FileHandler(filename=path, mode='a', encoding='utf8')
-formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
-hander.setFormatter(formatter)
-log.addHandler(hander)
 log.setLevel(logging.DEBUG)
+
+handler = logging.FileHandler(filename=path, mode='a', encoding='utf8')
+formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+handler.setFormatter(formatter)
+
+log.addHandler(handler)
 
 mail_host = 'smtp.yeah.net'
 mail_port = 25
