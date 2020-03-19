@@ -1,4 +1,5 @@
 import logging, os
+from logging import handlers
 
 # log
 path = 'logs/out.log'
@@ -8,7 +9,8 @@ if not os.path.exists(os.path.dirname(path)):
 log = logging.getLogger()
 log.setLevel(logging.DEBUG)
 
-handler = logging.FileHandler(filename=path, mode='a', encoding='utf8')
+# handler = logging.FileHandler(filename=path, mode='a', encoding='utf8')
+handler = handlers.TimedRotatingFileHandler(path, when='D', backupCount=7, encoding='utf8')
 formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 handler.setFormatter(formatter)
 
