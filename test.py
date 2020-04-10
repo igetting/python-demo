@@ -1,6 +1,5 @@
-import os
-import sys
 import json
+import time
 
 import requests
 from lxml import etree
