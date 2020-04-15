@@ -1,0 +1,16 @@
+input{
+    file{
+        path => ["/opt/elk/test.log"]
+        type=>"192.168.1.100"
+        start_position => "beginning"
+    }
+}
+filter{
+}
+output{
+    elasticsearch{
+        hosts => ["localhost:9200"]
+        index=>"%{type}-%{+YYYY.MM.dd}"
+        document_type=>"%{type}-%{+YYYY.MM.dd}"
+    }
+}
