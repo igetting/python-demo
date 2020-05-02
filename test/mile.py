@@ -45,7 +45,7 @@ class Chen():
     expire = exprie
 
     def __init__(self):
-        self.day = 39
+        self.day = Chen.expire
 
     def run(self):
         global total
