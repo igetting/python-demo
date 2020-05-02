@@ -6,14 +6,18 @@ chen = 129 / 38
 hong_num = 8
 chen_num = 1
 
+hong_price = 10
+chen_price = 100
+exprie = 39
+
 hong_list = []
 chen_list = []
 
 
 class Hong():
     size = hong_num
-    price = 10
-    expire = 39
+    price = hong_price
+    expire = exprie
 
     def __init__(self):
         self.day = Hong.expire
@@ -37,8 +41,8 @@ class Hong():
 
 class Chen():
     size = chen_num
-    price = 100
-    expire = 39
+    price = chen_price
+    expire = exprie
 
     def __init__(self):
         self.day = 39
@@ -63,7 +67,7 @@ class Chen():
 def task():
     global total
     for i in range(1, 366):
-        if i <= 38:
+        if i < 39:
             total = total + love
 
         if len(hong_list) < Hong.size and total >= Hong.price:
