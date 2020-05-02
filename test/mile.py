@@ -1,7 +1,7 @@
 total = 0.0
 love = 0.3948
-hong = 12.85/38
-chen = 129/38
+hong = 12.85 / 38
+chen = 129 / 38
 
 hong_num = 8
 chen_num = 1
@@ -9,10 +9,12 @@ chen_num = 1
 hong_list = []
 chen_list = []
 
+
 class Hong():
     size = hong_num
     price = 10
     expire = 39
+
     def __init__(self):
         self.day = Hong.expire
 
@@ -33,11 +35,11 @@ class Hong():
                 hong_list.remove(item)
 
 
-
 class Chen():
     size = chen_num
     price = 100
     expire = 39
+
     def __init__(self):
         self.day = 39
 
