@@ -1,12 +1,12 @@
 from sanic import Sanic
-from sanic.response import json
+from sanic.response import HTTPResponse
 
 app = Sanic("test")
 
 
 @app.route("/")
-def test(r):
-    return json("hello world")
+def test(request):
+    return HTTPResponse("hello world")
 
 
 if __name__ == '__main__':
